@@ -10,9 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -37,11 +34,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto nav">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.index') }}" class="nav-link">Панель состояния</a>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Блог</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ route('admin.category.index') }}" class="dropdown-item">Категории</a></li>
-                                <li><a href="#" class="dropdown-item">Материалы</a></li>
+                                <li><a href="{{ route('admin.article.index') }}" class="dropdown-item">Материалы</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -80,5 +80,9 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>
